@@ -4,7 +4,7 @@
  * Displays a widget in the kirby panel's dashboard showing support options.
  *
  * @author Aristotheme <support@aristotheme.com>
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 if (c::get('aristotheme.widget')) {
@@ -28,8 +28,8 @@ if (c::get('aristotheme.widget')) {
           "href" => "http://aristotheme.com"
         )
       );
-      $data = ($links = c::get('aristotheme.widget.links'))? $links : $defaults;
-      return tpl::load(__DIR__ . DS . 'template.php', $data );
+      $links = c::get('aristotheme.widget.links', $defaults);
+      return tpl::load(__DIR__ . DS . 'template.php', array('links' => $links));
     }
   );
 }
